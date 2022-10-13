@@ -1,0 +1,36 @@
+<template>
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <h2 class="slds-text-heading_medium slds-var-p-around_small">
+            Vnos študenta
+        </h2>
+        <!-- Ime -->
+        <div class="slds-var-p-around_small">
+            <lightning-input type="text" label="Ime" maxlength="50" onchange={handleImeChange} required></lightning-input>
+        </div>
+        <!-- Priimek -->
+        <div class="slds-var-p-around_small">
+            <lightning-input type="text" label="Priimek" maxlength="50" onchange={handlePriimekChange} required></lightning-input>
+        </div>
+        <!-- EMŠO -->
+        <div class="slds-var-p-around_small">
+            <lightning-input type="number" label="EMŠO" onchange={handleEmsoChange} required></lightning-input>
+        </div>
+         <!-- Tip studija -->
+        <lightning-combobox
+                    class="slds-var-p-around_small"
+                    name="tipStudija"
+                    label="Tip študija"
+                    value=""
+                    placeholder="Izberi..."
+                    options={options}
+                    onchange={handleChange}
+                    required
+        ></lightning-combobox>
+        <!-- Placnik -->
+        <lightning-input if:true={showPlacnik} class="slds-form-element slds-var-p-around_small" type="checkbox" label="Plačnik" checked> </lightning-input>
+        <div if:false={showPlacnik} class="slds-form-element slds-var-p-around_small"></div>
+        <lightning-button class="slds-var-p-around_small" variant="success" label="Shrani" title="Successful action" onclick={handleSave}></lightning-button>
+    </div>
+    
+
+</template>

@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Prikaz študentov prijavljenih na izpitni rok">
+        <lightning-combobox
+            class="slds-var-p-around_medium"
+            name="izpitniRok"
+            label="Izpitni rok"
+            placeholder="Izberi..."
+            options={optionsIzpitniRoki}
+            onchange={handleIzpitniRokChange}
+            required
+        ></lightning-combobox>
+        <lightning-button type="submit" name="submit" class="slds-var-p-around_small slds-var-m-bottom_medium" variant="success" label="Prikaz" onclick={handlePrikaz}></lightning-button>
+        <div if:true={showTable}>
+            <lightning-datatable
+                class="slds-var-m-top_large"
+                key-field="Id"
+                data={studenti}
+                columns={columns}
+                hide-checkbox-column
+                >
+            </lightning-datatable>
+        </div>
+
+    </lightning-card>
+</template>

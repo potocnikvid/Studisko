@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Vnos študenta">
+        <div>
+            <!-- Ime -->
+            <div class="slds-var-p-around_small">
+                <lightning-input type="text" label="Ime" maxlength="50" onchange={handleImeChange} required></lightning-input>
+            </div>
+            <!-- Priimek -->
+            <div class="slds-var-p-around_small">
+                <lightning-input type="text" label="Priimek" maxlength="50" onchange={handlePriimekChange} required></lightning-input>
+            </div>
+            <!-- EMŠO -->
+            <div class="slds-var-p-around_small">
+                <lightning-input  type="number" label="EMŠO" onchange={handleEmsoChange} required></lightning-input>
+            </div>
+             <!-- Tip studija -->
+            <lightning-combobox
+                        class="slds-var-p-around_small"
+                        name="tipStudija"
+                        label="Tip študija"
+                        placeholder="Izberi..."
+                        options={optionsTipStudija}
+                        onchange={handleTipChange}
+                        required
+            ></lightning-combobox>
+            <!-- Placnik -->
+            <lightning-input-field if:true={showPlacnik} type="checkbox" label="Plačnik" checked> </lightning-input-field>
+        <lightning-button type="submit" name="submit" class="slds-var-p-around_small" variant="success" label="Shrani" onclick={handleSubmit}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
